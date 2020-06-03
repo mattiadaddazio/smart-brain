@@ -9,12 +9,12 @@ const OutsideNavigation = () => {
       <img src={brain} alt="logo" />
       <div className="d-flex">
         <div>
-          <Link className="link underline" to="/signin">
+          <Link className="link underline" to="/smart-brain/signin">
             Sign In
           </Link>
         </div>
         <div>
-          <Link className="link underline" to="/register">
+          <Link className="link underline" to="/smart-brain/register">
             Register
           </Link>
         </div>

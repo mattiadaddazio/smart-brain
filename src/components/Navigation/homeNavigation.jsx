@@ -8,7 +8,7 @@ const HomeNavigation = () => {
     <nav className="d-flex justify-content-between">
       <img src={brain} alt="logo" />
       <div>
-        <Link className="link underline" to="/signin">
+        <Link className="link underline" to="/smart-brain/signin">
           Sign Out
         </Link>
       </div>

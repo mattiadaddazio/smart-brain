@@ -34,16 +34,17 @@ class App extends Component {
         <Particles className="particles" params={particlesOptions} />
         <Switch>
           <Route
-            path={["/signin", "/register"]}
+            path={["/smart-brain/signin", "/smart-brain/register"]}
             component={OutsideNavigation}
           />
-          <Route path="/" component={HomeNavigation} />
+          <Route path="/smart-brain" component={HomeNavigation} />
         </Switch>
         <Switch>
-          <Route path="/signin" component={Signin} />
-          <Route path="/register" component={Register} />
-          <Route path="/home" component={Home} />
-          <Redirect from="/" to="home" />
+          <Route path="/smart-brain/signin" component={Signin} />
+          <Route path="/smart-brain/register" component={Register} />
+          <Route path="/smart-brain/home" component={Home} />
+          <Redirect from="/smart-brain" to="/smart-brain/home" />
+          {/* <Redirect from="/" to="/smart-brain" /> */}
         </Switch>
       </div>
     );

@@ -19,17 +19,17 @@ const Signin = () => {
       />
       <p>
         Don't have an account?&nbsp;
-        <Link className="text-dark underline" to="/register">
+        <Link className="text-dark underline" to="/smart-brain/register">
           Sign up
         </Link>
       </p>
       <p>or</p>
       <p>
-        <Link className="text-dark underline" to="/home">
+        <Link className="text-dark underline" to="/smart-brain/home">
           Use without an account
         </Link>
       </p>
-      <Link style={{ color: "white" }} to="/home">
+      <Link style={{ color: "white" }} to="/smart-brain/home">
         <button id="sign-in-button" className="btn btn-lg btn-primary m-3">
           Sign in
         </button>

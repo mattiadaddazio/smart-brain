@@ -24,7 +24,7 @@ const Register = () => {
         className="form-control w-75 mb-2 mx-auto"
         placeholder="Password"
       />
-      <Link style={{ color: "white" }} to="/home">
+      <Link style={{ color: "white" }} to="/smart-brain/home">
         <button className="btn btn-lg btn-primary m-3">Register</button>
       </Link>
     </div>
