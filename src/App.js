@@ -43,7 +43,7 @@ class App extends Component {
           <Route path="/smart-brain/signin" component={Signin} />
           <Route path="/smart-brain/register" component={Register} />
           <Route path="/smart-brain/home" component={Home} />
-          <Redirect from="/smart-brain" to="/smart-brain/home" />
+          <Redirect from="/smart-brain" to="/smart-brain/signin" />
           {/* <Redirect from="/" to="/smart-brain" /> */}
         </Switch>
       </div>

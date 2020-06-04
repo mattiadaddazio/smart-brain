@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import Clarifai from "clarifai";
+import { ToastContainer, Slide, toast } from "react-toastify";
 import ImageLinkForm from "./imageLinkForm";
 import FaceRecognition from "./faceRecognition";
-import Rank from "./rank";
-import Clarifai from "clarifai";
+// import Rank from "./rank";
+import "react-toastify/dist/ReactToastify.css";
 import "./home.css";
 
 const app = new Clarifai.App({
@@ -18,12 +20,26 @@ class Home extends Component {
     };
   }
 
+  handleError = (message) => {
+    toast(message, {
+      position: "top-right",
+      autoClose: 4000,
+      hideProgressBar: true,
+      transition: Slide,
+      className: "my-toast",
+      closeButton: false,
+    });
+  };
+
   calculateFaceLocation = (data) => {
-    const clarifaiBoxes = data.outputs[0].data.regions.map(
+    const clarifaiRegions = data.outputs[0].data.regions;
+    if (!clarifaiRegions) this.handleError("Nothing interesting there...");
+
+    const clarifaiBoxes = clarifaiRegions.map(
       (r) => r.region_info.bounding_box
     );
-    const { width, height } = document.getElementById("inputImage");
 
+    const { width, height } = document.getElementById("inputImage");
     return clarifaiBoxes.map((b) => {
       return {
         left: width * b.left_col,
@@ -34,27 +50,42 @@ class Home extends Component {
     });
   };
 
-  onInputChange = ({ target }) => {
+  handleInputChange = ({ target }) => {
     this.setState({ input: target.value, boxes: [] });
   };
 
-  onSubmit = () => {
+  handleSubmit = () => {
     app.models
       .predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
       .then((response) => {
         this.setState({ boxes: this.calculateFaceLocation(response) });
+      })
+      .catch((err) => {
+        if (err.response.status === 400)
+          this.handleError("That's not a valid image");
       });
   };
 
+  handleRandomImage = async () => {
+    const { url } = await fetch(
+      "https://loremflickr.com/700/700/people,face,faces,group"
+    );
+    this.setState({ input: url, boxes: [] });
+  };
+
   render() {
+    const { input, boxes } = this.state;
     return (
       <div>
+        <ToastContainer />
         {/* <Rank /> */}
         <ImageLinkForm
-          onInputChange={this.onInputChange}
-          onButtonSubmit={this.onSubmit}
+          onInputChange={this.handleInputChange}
+          onButtonSubmit={this.handleSubmit}
+          onRandomImage={this.handleRandomImage}
+          value={input}
         />
-        <FaceRecognition boxes={this.state.boxes} imgUrl={this.state.input} />
+        <FaceRecognition boxes={boxes} imgUrl={input} />
       </div>
     );
   }

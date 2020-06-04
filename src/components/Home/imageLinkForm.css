@@ -16,3 +16,18 @@
 #input::placeholder {
   color: rgba(255, 255, 255, 0.8);
 }
+
+#random {
+  font-size: 2rem;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+#random:hover {
+  color: white;
+}
+
+p#prompt {
+  margin-bottom: 10px;
+  font-size: large;
+}

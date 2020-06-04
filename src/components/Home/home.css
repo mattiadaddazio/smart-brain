@@ -2,3 +2,14 @@
   position: absolute;
   box-shadow: 0 0 0 3px #00e1ff inset;
 }
+
+.my-toast {
+  position: absolute;
+  right: 0;
+  width: fit-content;
+  border-radius: 5rem;
+  margin-top: 5px;
+  background-color: transparent;
+  color: rgb(255, 0, 85);
+  font: italic bolder 1.2rem "Courier New", Courier, monospace;
+}
