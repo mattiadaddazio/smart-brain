@@ -20,6 +20,12 @@ class Home extends Component {
     };
   }
 
+  componentDidMount() {
+    window.addEventListener("keydown", ({ key }) => {
+      if (key === "Enter") this.handleSubmit();
+    });
+  }
+
   handleError = (message) => {
     toast(message, {
       position: "top-right",
