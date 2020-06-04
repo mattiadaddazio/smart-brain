@@ -1,12 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./register.css";
 
 const Register = () => {
   return (
-    <div
-      className="shadow mx-auto p-3"
-      style={{ maxWidth: "500px", borderRadius: "5%" }}
-    >
+    <div className="form shadow mx-auto p-3">
       <h1 className="h3 mb-3">Register</h1>
       <input
         type="text"
@@ -25,7 +23,9 @@ const Register = () => {
         placeholder="Password"
       />
       <Link style={{ color: "white" }} to="/smart-brain/home">
-        <button className="btn btn-lg btn-primary m-3">Register</button>
+        <button id="sign-up-button" className="btn btn-lg btn-primary m-3">
+          Register
+        </button>
       </Link>
     </div>
   );

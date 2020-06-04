@@ -1,0 +1,25 @@
+.form {
+  max-width: 500px;
+  border-radius: 5%;
+}
+
+input.form-control,
+input.form-control:focus {
+  background-color: transparent;
+  border-color: black;
+}
+
+input.form-control::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+#sign-up-button {
+  background-color: transparent;
+  border-color: black;
+  color: rgb(100, 250, 255);
+  color: black;
+}
+
+#sign-up-button:hover {
+  color: white;
+}
